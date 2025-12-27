@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotton Bazar Nepal - Premium Bedsheets & Bedding</title>
+    <meta name="description" content="Cotton Bazar Nepal - High-quality Jaipuri cotton bedsheets, imported and retail in Kathmandu. Visit our stores in Maharajgunj, Kumaripati, and Shankhamul.">
+    <style>
+        :root {
+            --primary: #2e8b57; /* Sea green for cotton theme */
+            --secondary: #f5f5f5;
+            --text: #333;
+        }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background-color: var(--secondary);
+            line-height: 1.6;
+        }
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 100px;
+            margin-right: 10px;
+        }
+        .logo h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: var(--primary);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 20px;
+        }
+        .hero h2 {
+            font-size: 3.5rem;
+            margin: 0 0 20px;
+        }
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #246b45;
+        }
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h3 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+        .locations {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .location-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 300px;
+        }
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                display: none;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            /* Add hamburger menu if needed */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="C:\Users\Acer\Desktop\index.html\Cotton bazar logo copy.png" alt="Cotton Bazar Nepal Logo"> <!-- REPLACE WITH YOUR LOGO URL -->
+                <h1>Cotton Bazar</h1>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#locations">Stores</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>Welcome to Cotton Bazar Nepal</h2>
+        <p>Premium Jaipuri Pure Cotton Bedsheets – Comfort, Quality & Style for Your Home</p>
+        <a href="#products" class="btn">Shop Now</a>
+    </section>
+
+    <section id="about">
+        <h3>About Us</h3>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.2rem;">
+            Cotton Bazar Nepal is a trusted importer, wholesaler, and retailer of high-quality Jaipuri cotton bedsheets and bedding products. With three convenient locations in Kathmandu Valley, we bring you the finest cotton fabrics for a luxurious and comfortable sleep experience.
+        </p>
+    </section>
+
+    <section id="products">
+        <h3>Our Popular Bedsheets</h3>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1629949008639-8a6d7b6b4b3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Printed Cotton Bedsheet">
+                <div class="product-info">
+                    <h4>Jaipuri Printed Cotton Bedsheet</h4>
+                    <p>Queen Size | Soft & Durable</p>
+                    <p><strong>Rs. 1,750</strong></p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plain Cotton Bedsheet">
+                <div class="product-info">
+                    <h4>Plain Premium Cotton Bedsheet</h4>
+                    <p>King Size | Breathable</p>
+                    <p><strong>Rs. 2,200</strong></p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Floral Design Bedsheet">
+                <div class="product-info">
+                    <h4>Floral Jaipuri Cotton Set</h4>
+                    <p>With 2 Pillow Covers</p>
+                    <p><strong>Rs. 1,999</strong></p>
+                </div>
+            </div>
+            <!-- Add more products as needed -->
+        </div>
+    </section>
+
+    <section id="locations">
+        <h3>Our Store Locations</h3>
+        <div class="locations">
+            <div class="location-card">
+                <h4>Maharajgunj</h4>
+                <p>Bansbari Road, Kathmandu</p>
+                <p>Contact: +977 980-1148204</p>
+            </div>
+            <div class="location-card">
+                <h4>Kumaripati</h4>
+                <p>Manbhawan, Lalitpur</p>
+                <p>Contact: +977 980-1148204</p>
+            </div>
+            <div class="location-card">
+                <h4>Shankhamul</h4>
+                <p>New Baneshwor, Shankhamul Oralo, Kathmandu</p>
+                <p>Contact: +977 980-1148204</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h3>Contact Us</h3>
+        <p style="text-align: center; font-size: 1.2rem;">
+            Email: thecottonbazarnepal@gmail.com<br>
+            Phone: +977 980-1148204<br>
+            Follow us on Facebook: <a href="https://www.facebook.com/cottonbazarnepal/" target="_blank">CottonBazarNepal</a><br>
+            Follow us on Instagram: <a href=https://www.instagram.com/cottonbazarnepal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw== target="_blank">CottonBazarNepal</a><br>
+            Follow us on Tiktok: <a href=https://www.tiktok.com/@cottonbazarnepal?is_from_webapp=1&sender_device=pc>CottonBazarNepal</a>
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Cotton Bazar Nepal. All rights reserved.</p>
+        <p>Website powered by your domain: <strong>cottonbazar.com.np</strong></p>
+    </footer>
+
+</body>
+</html>
