@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="C:\Users\Acer\Desktop\index.html\Cotton bazar logo copy.png" type="image/svg+xml">
+    <link rel="icon" href="C:\Users\Acer\Desktop\index.html\Cotton bazar logo copy.png" type="image/svg+xml" sizes = "64*64">
     <title>Cotton Bazar Nepal - Premium Bedsheets & Bedding</title>
     <meta name="description" content="Cotton Bazar Nepal - High-quality Jaipuri cotton bedsheets, imported and retail in Kathmandu. Visit our stores in Maharajgunj, Kumaripati, and Shankhamul.">
     <style>
@@ -147,6 +147,85 @@
             }
             /* Add hamburger menu if needed */
         }
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        .auth-buttons button {
+            padding: 8px 16px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-btn {
+            background: var(--primary);
+            color: white;
+        }
+        .logout-btn {
+            background: #d32f2f;
+            color: white;
+        }
+        .hero, section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button[type="submit"] {
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .error-msg {
+            color: var(--error);
+            font-size: 0.9rem;
+            min-height: 20px;
+        }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -181,6 +260,26 @@
             Cotton Bazar Nepal is a trusted importer, wholesaler, and retailer of high-quality Jaipuri cotton bedsheets and bedding products. With three convenient locations in Kathmandu Valley, we bring you the finest cotton fabrics for a luxurious and comfortable sleep experience.
         </p>
     </section>
+    <div class="auth-buttons">
+                <button id="loginBtn" class="login-btn">Login</button>
+                <button id="logoutBtn" class="logout-btn hidden">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Login to Cotton Bazar</h2>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <div class="error-msg" id="errorMsg"></div>
+            </form>
+        </div>
+    </div>
     <section id="locations">
         <h3>Our Store Locations</h3>
         <div class="locations">
@@ -218,5 +317,59 @@
         <p>Website powered by your domain: <strong>cottonbazar.com.np</strong></p>
     </footer>
 
+</body>
+</html>
+<script>
+        // Simple client-side login system (demo only - NOT SECURE for production)
+        const users = [
+            { username: "admin", password: "cotton123" },
+            { username: "customer", password: "welcome" }
+        ];
+
+        const loginModal = document.getElementById('loginModal');
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const closeModal = document.getElementById('closeModal');
+        const loginForm = document.getElementById('loginForm');
+        const errorMsg = document.getElementById('errorMsg');
+
+        // Check if already logged in
+        if (localStorage.getItem('loggedInUser')) {
+            loginBtn.classList.add('hidden');
+            logoutBtn.classList.remove('hidden');
+        }
+
+        loginBtn.onclick = () => loginModal.style.display = 'flex';
+        closeModal.onclick = () => loginModal.style.display = 'none';
+        window.onclick = (e) => {
+            if (e.target === loginModal) loginModal.style.display = 'none';
+        };
+
+        loginForm.onsubmit = (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                localStorage.setItem('loggedInUser', username);
+                loginModal.style.display = 'none';
+                loginBtn.classList.add('hidden');
+                logoutBtn.classList.remove('hidden');
+                errorMsg.textContent = '';
+                alert('Login successful! Welcome, ' + username);
+            } else {
+                errorMsg.textContent = 'Invalid username or password';
+            }
+        };
+
+        logoutBtn.onclick = () => {
+            localStorage.removeItem('loggedInUser');
+            loginBtn.classList.remove('hidden');
+            logoutBtn.classList.add('hidden');
+            alert('Logged out successfully');
+        };
+    </script>
 </body>
 </html>
