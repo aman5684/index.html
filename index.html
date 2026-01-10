@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="Cotton bazar logo copy.png" type="image/svg+xml" sizes = "64*64">
+    <link rel="icon" href="Cotton bazar logo copy.png" type="image/svg+xml" sizes="64x64">
     <title>Cotton Bazar Nepal - Premium Bedsheets & Bedding</title>
     <meta name="description" content="Cotton Bazar Nepal - High-quality Jaipuri cotton bedsheets, imported and retail in Kathmandu. Visit our stores in Maharajgunj, Kumaripati, and Shankhamul.">
     <style>
-        
         :root {
             --primary: #208b83; /* Sea green for cotton theme */
             --secondary: #f5f5f5;
             --text: #333;
+            --error: #d32f2f;
         }
         body {
             margin: 0;
@@ -107,7 +107,6 @@
             margin-bottom: 50px;
             font-size: 2.5rem;
         }
-        
         .locations {
             display: flex;
             flex-wrap: wrap;
@@ -147,9 +146,6 @@
             }
             /* Add hamburger menu if needed */
         }
-        nav ul li a:hover {
-            color: var(--primary);
-        }
         .auth-buttons button {
             padding: 8px 16px;
             margin-left: 10px;
@@ -164,12 +160,6 @@
         .logout-btn {
             background: #d32f2f;
             color: white;
-        }
-        .hero, section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
         }
         .modal {
             display: none;
@@ -226,6 +216,23 @@
         .hidden {
             display: none;
         }
+        #products .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -233,20 +240,38 @@
     <header>
         <nav>
             <div class="logo">
-    <img src="Cotton bazar logo copy.png" alt="Cotton Bazar Nepal Logo" style="height: 100px; margin-right: 15px;">
-    <h1 style="margin: 0; font-size: 1.8rem;">
-        <span style="color: #000;">Cotton</span>
-        <span style="color: #208b83;">Bazar Nepal</span>
-    </h1>
-</div>
+                <img src="Cotton bazar logo copy.png" alt="Cotton Bazar Nepal Logo" style="height: 100px; margin-right: 15px;">
+                <h1 style="margin: 0; font-size: 1.8rem;">
+                    <span style="color: #208b83;">Cotton</span>
+                    <span style="color: #000;">Bazar Nepal</span>
+                </h1>
+            </div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#locations">Stores</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="auth-buttons">
+                <button id="loginBtn" class="login-btn">Login</button>
+                <button id="logoutBtn" class="logout-btn hidden">Logout</button>
+            </div>
         </nav>
     </header>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h2>Login to Cotton Bazar</h2>
+            <form id="loginForm">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <div class="error-msg" id="errorMsg"></div>
+            </form>
+        </div>
+    </div>
 
     <section class="hero" id="home">
         <h2>Welcome to Cotton Bazar Nepal</h2>
@@ -260,26 +285,12 @@
             Cotton Bazar Nepal is a trusted importer, wholesaler, and retailer of high-quality Jaipuri cotton bedsheets and bedding products. With three convenient locations in Kathmandu Valley, we bring you the finest cotton fabrics for a luxurious and comfortable sleep experience.
         </p>
     </section>
-    <div class="auth-buttons">
-                <button id="loginBtn" class="login-btn">Login</button>
-                <button id="logoutBtn" class="logout-btn hidden">Logout</button>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeModal">&times;</span>
-            <h2>Login to Cotton Bazar</h2>
-            <form id="loginForm">
-                <input type="text" id="username" placeholder="Username" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-                <div class="error-msg" id="errorMsg"></div>
-            </form>
-        </div>
-    </div>
+    <section id="products">
+        <h3>Our Products</h3>
+        <div class="product-grid" id="productGrid"></div>
+    </section>
+
     <section id="locations">
         <h3>Our Store Locations</h3>
         <div class="locations">
@@ -307,8 +318,8 @@
             Email: thecottonbazarnepal@gmail.com<br>
             Phone: +977 980-1148204<br>
             Follow us on Facebook: <a href="https://www.facebook.com/cottonbazarnepal/" target="_blank">CottonBazarNepal</a><br>
-            Follow us on Instagram: <a href=https://www.instagram.com/cottonbazarnepal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw== target="_blank">CottonBazarNepal</a><br>
-            Follow us on Tiktok: <a href=https://www.tiktok.com/@cottonbazarnepal?is_from_webapp=1&sender_device=pc>CottonBazarNepal</a>
+            Follow us on Instagram: <a href="https://www.instagram.com/cottonbazarnepal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">CottonBazarNepal</a><br>
+            Follow us on Tiktok: <a href="https://www.tiktok.com/@cottonbazarnepal?is_from_webapp=1&sender_device=pc">CottonBazarNepal</a>
         </p>
     </section>
 
@@ -317,14 +328,9 @@
         <p>Website powered by your domain: <strong>cottonbazar.com.np</strong></p>
     </footer>
 
-</body>
-</html>
-<script>
-        // Simple client-side login system (demo only - NOT SECURE for production)
-        const users = [
-            { username: "admin", password: "cotton123" },
-            { username: "customer", password: "welcome" }
-        ];
+    <script>
+        // Frontend JavaScript for login and products
+        const apiBase = 'http://localhost:8080/api'; // Adjust to your backend URL
 
         const loginModal = document.getElementById('loginModal');
         const loginBtn = document.getElementById('loginBtn');
@@ -332,11 +338,13 @@
         const closeModal = document.getElementById('closeModal');
         const loginForm = document.getElementById('loginForm');
         const errorMsg = document.getElementById('errorMsg');
+        const productGrid = document.getElementById('productGrid');
 
-        // Check if already logged in
-        if (localStorage.getItem('loggedInUser')) {
+        // Check if logged in
+        if (localStorage.getItem('token')) {
             loginBtn.classList.add('hidden');
             logoutBtn.classList.remove('hidden');
+            loadProducts();
         }
 
         loginBtn.onclick = () => loginModal.style.display = 'flex';
@@ -345,31 +353,70 @@
             if (e.target === loginModal) loginModal.style.display = 'none';
         };
 
-        loginForm.onsubmit = (e) => {
+        loginForm.onsubmit = async (e) => {
             e.preventDefault();
-            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value.trim();
 
-            const user = users.find(u => u.username === username && u.password === password);
-
-            if (user) {
-                localStorage.setItem('loggedInUser', username);
-                loginModal.style.display = 'none';
-                loginBtn.classList.add('hidden');
-                logoutBtn.classList.remove('hidden');
-                errorMsg.textContent = '';
-                alert('Login successful! Welcome, ' + username);
-            } else {
-                errorMsg.textContent = 'Invalid username or password';
+            try {
+                const response = await fetch(`${apiBase}/auth/signin`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    localStorage.setItem('token', data.accessToken);
+                    localStorage.setItem('user', JSON.stringify(data));
+                    loginModal.style.display = 'none';
+                    loginBtn.classList.add('hidden');
+                    logoutBtn.classList.remove('hidden');
+                    errorMsg.textContent = '';
+                    alert('Login successful! Welcome, ' + data.username);
+                    loadProducts();
+                } else {
+                    errorMsg.textContent = data.message || 'Invalid credentials';
+                }
+            } catch (err) {
+                errorMsg.textContent = 'Error: ' + err.message;
             }
         };
 
         logoutBtn.onclick = () => {
-            localStorage.removeItem('loggedInUser');
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
             loginBtn.classList.remove('hidden');
             logoutBtn.classList.add('hidden');
+            productGrid.innerHTML = '';
             alert('Logged out successfully');
         };
+
+        async function loadProducts() {
+            try {
+                const response = await fetch(`${apiBase}/products`, {
+                    headers: { 'x-access-token': localStorage.getItem('token') }
+                });
+                if (response.ok) {
+                    const products = await response.json();
+                    productGrid.innerHTML = '';
+                    products.forEach(product => {
+                        const card = document.createElement('div');
+                        card.className = 'product-card';
+                        card.innerHTML = `
+                            <img src="${product.image || 'placeholder.jpg'}" alt="${product.name}">
+                            <h4>${product.name}</h4>
+                            <p>${product.description}</p>
+                            <p>Price: $${product.price}</p>
+                        `;
+                        productGrid.appendChild(card);
+                    });
+                } else {
+                    console.error('Failed to load products');
+                }
+            } catch (err) {
+                console.error('Error loading products:', err);
+            }
+        }
     </script>
 </body>
 </html>
